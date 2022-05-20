@@ -9,6 +9,6 @@
 
 ### Project Features
 
- - ### Add new Message which requires username and the message and uses angular form validation
+ - #### Add new Message which requires username and the message and uses angular form validation
   
   - #### Delete existing message
