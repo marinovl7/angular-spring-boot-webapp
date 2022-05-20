@@ -1,0 +1,91 @@
+<nav class="navbar">
+  <a class="navbar-title-logo">Guestbook WebApp</a>
+  <button (click)="openModal()" class="navbar-button">Add Message</button>
+</nav>
+<div class="container">
+  <div class="messages-container">
+    <!-- ngFor loop to create a message div for every single message in the database and it's data -->
+    <div *ngFor="let message of messages" class="message">
+      <div class="flex-container">
+        <h3 class="username">Author: {{ message?.username }}</h3>
+        <button class="delete-button" (click)="deleteMessage(message)">
+          Delete
+        </button>
+      </div>
+      <p class="text">
+        {{ message?.text }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- modal handler -->
+<div class="modal hidden" id="modal">
+  <button (click)="closeModal()" class="btn--close-modal" id="btn--close-modal">
+    &times;
+  </button>
+  <form
+    #addMessageForm="ngForm"
+    (ngSubmit)="addMessage(addMessageForm)"
+    class="modal-form"
+  >
+    <div>
+      <label class="username-label" for="username">Username:</label><br />
+      <input
+        required
+        placeholder="maxmusterman"
+        ngModel
+        maxlength="20"
+        #username="ngModel"
+        class="username-input"
+        type="text"
+        id="username"
+        name="username"
+      />
+      <!-- div that is displayed when the username is exactly 20 characters so the user can know why he can't write more  -->
+      <div
+        *ngIf="username.invalid && (username.dirty || username.touched)"
+        class="error-message"
+      >
+        <div *ngIf="username.errors?.['required']">Username is required.</div>
+      </div>
+      <div
+        class="error-message"
+        *ngIf="username.touched && username.value.length === 20"
+      >
+        Username should be no more than 20 characters(20/20)
+      </div>
+
+      <br />
+    </div>
+    <div>
+      <label class="message-label" for="message">Add Message:</label><br />
+      <textarea
+        placeholder="I'm a good person"
+        required
+        name="text"
+        ngModel
+        #textInput="ngModel"
+        class="text-input"
+        cols="30"
+        rows="10"
+      ></textarea>
+      <div
+        *ngIf="textInput.invalid && (textInput.dirty || textInput.touched)"
+        class="error-message"
+      >
+        <div *ngIf="textInput.errors?.['required']">
+          Text message is required.
+        </div>
+      </div>
+    </div>
+    <button
+      [disabled]="!addMessageForm.valid"
+      class="add-message"
+      type="submit"
+    >
+      Add Message
+    </button>
+  </form>
+  <div class="overlay hidden"></div>
+</div>

@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+.navbar {
+  height: 8rem;
+  background-color: #1e81b0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-title-logo {
+  text-decoration: none;
+  font-size: 3.2rem;
+  padding: 1.6rem 3.2rem;
+  color: #fff;
+}
+.navbar-button {
+  border: 1px solid #fff;
+  background-color: #fff;
+  border-radius: 11px;
+  padding: 1.6rem 3.2rem;
+  height: 6rem;
+  color: #1e81b0;
+  font-size: 2rem;
+  transition: all 0.3s;
+  margin-right: 2.4rem;
+}
+.container {
+  max-width: 120rem;
+  margin: auto;
+}
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #e6e6e6;
+  border-radius: 11px;
+  padding: 4.8rem 8.4rem;
+  min-height: 70rem;
+  word-wrap: break-word;
+}
+.message {
+  border-radius: 11px;
+  background-color: #62a7c8;
+  padding: 1.2rem 2.4rem;
+  width: 80rem;
+}
+.username {
+  color: #fff;
+  font-size: 2.4rem;
+}
+.text {
+  font-size: 1.8rem;
+  color: #fff;
+  line-height: 1.4;
+}
+.navbar-button:hover {
+  background-color: #ccc;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.delete-button {
+  padding: 0.8rem 1.6rem;
+  border-radius: 11px;
+  color: #62a7c8;
+  background-color: #fff;
+  font-size: 1.8rem;
+  transition: all 0.3s;
+  border: none;
+}
+.delete-button:hover {
+  background-color: #ccc;
+}
+
+/* Modal styling */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50rem;
+  background-color: #e6e6e6;
+  padding: 5rem 6rem;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  transition: all 0.5s;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  transition: all 0.5s;
+}
+
+.btn--close-modal {
+  font-family: inherit;
+  color: inherit;
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  font-size: 4rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+.username-label {
+  align-self: stretch;
+  font-size: 1.8rem;
+  color: inherit;
+}
+.message-label {
+  margin-bottom: 1.2rem;
+  font-size: 1.8rem;
+  color: inherit;
+}
+.username-input {
+  padding-left: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 11px;
+  height: 3rem;
+  border: 1px solid #1e81b0 !important;
+  width: 30rem;
+}
+.text-input {
+  padding-left: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 11px;
+
+  height: 9rem;
+  border: 1px solid #1e81b0 !important;
+  width: 30rem;
+}
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+textarea {
+  resize: none;
+}
+.add-message {
+  border-radius: 11px;
+  border: 1px solid #1e81b0;
+  padding: 1.6rem 3.2rem;
+  color: #fff;
+  background-color: #1e81b0;
+}
+.error-message {
+  margin-top: 1rem;
+  color: red;
+  font-size: 1.3rem;
+}
